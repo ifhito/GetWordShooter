@@ -22,7 +22,7 @@ class Canvas implements Canvas {
     });
   }
   clear(element: any) {
-    element.remove(this.elements);
+    if (element.remove()) delete this.elements[element.hash];
   }
   push(element: any) {
     this.elements[element.hash] = element;
@@ -34,17 +34,6 @@ class Canvas implements Canvas {
     setInterval(this.draw.bind(this), 1);
   }
 }
-// const canvas = document.getElementById("myCanvas") as HTMLCanvasElement;
-// const ctx = canvas.getContext("2d");
-// const MachinGun = new MachinGunBullet(canvas);
-
-// function draw() {
-//   console.log(ctx);
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   MachinGun.create(ctx);
-//   MachinGun.move();
-// }
-
 const can = new Canvas();
 console.log(can.ctx);
 can.run();

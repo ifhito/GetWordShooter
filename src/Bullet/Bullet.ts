@@ -44,8 +44,9 @@ class Bullet extends GameElement implements Bullet {
     return false;
   }
   // 消す
-  remove(elements) {
-    if (this.outOfRange()) delete elements[this.hash];
+  remove() {
+    if (this.outOfRange()) return true;
+    return false;
   }
   // 当たる
   hit(ctx, canvas) {}
