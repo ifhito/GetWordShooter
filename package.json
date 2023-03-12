@@ -1,0 +1,23 @@
+{
+  "name": "get_word_shooter",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ./public/js/",
+    "ttsc": "ttsc",
+    "watch": "ttsc --watch",
+    "cleanwatch": "run-s clean watch",
+    "serve": "sirv public --port 8010",
+    "build": "run-s clean ttsc serve",
+    "dev": "run-p cleanwatch serve"
+  },
+  "devDependencies": {
+    "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
+    "rimraf": "^4.4.0",
+    "sirv-cli": "^2.0.2",
+    "ttypescript": "^1.5.15",
+    "typescript": "^4.9.5",
+    "yarn-run-all": "^3.1.1"
+  }
+}
