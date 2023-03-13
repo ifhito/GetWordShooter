@@ -1,21 +1,31 @@
+import GameElement from "../GameElement";
 interface Enemy {
+  x: number;
+  y: number;
   width: number;
   height: number;
   hp: number;
+  canvas: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
 }
 
-class Enemy implements Enemy {
-  constructor(width, height, hp) {
+class Enemy extends GameElement implements Enemy {
+  constructor(x, y, width, height, hp, canvas) {
+    super(Math.random());
+    this.x = x;
+    this.y = y;
     this.width = width;
     this.height = height;
     this.hp = hp;
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
   }
   // 作成
-  create(ctx, canvas) {}
+  create() {}
   // 動かす
-  move(ctx, canvas) {}
-  // 消す
-  clear(ctx, canvas) {}
+  move() {}
   // 当たる
-  hit(ctx, canvas) {}
+  hit() {}
 }
+
+export default Enemy;
